@@ -2,18 +2,17 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { COLORS } from '../utils/StyleConstants';
 
-const LevelButton = (props: { value: number }) => {
-
-  function onClickButton(value: number) {
-    alert('Click on level ' + value);
+const LevelButton = ({ value, navigation }: number | any) => {
+  function onClickButton(level: number) {
+    navigation.navigate('Game', { level });
   }
 
   return (
     <TouchableOpacity
       style={styles.button}
-      onPress={() => onClickButton(props.value)}
+      onPress={() => onClickButton(value)}
     >
-      <Text style={styles.level}>{props.value}</Text>
+      <Text style={styles.level}>{value}</Text>
     </TouchableOpacity>
   );
 };

@@ -1,54 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import LevelButton from './src/components/LevelButton';
-import { COLORS } from './src/utils/StyleConstants';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './src/pages/HomeScreen';
+import GameScreen from './src/pages/GameScreen';
 
-export default function App() {
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-
-      <View style={styles.mainTextContainer}>
-        <Text style={styles.mainText}>ESCOLHA O NÍVEL QUE DESEJA JOGAR</Text>
-      </View>
-
-      <View style={styles.buttons}>
-        <LevelButton value={1} />
-        <LevelButton value={2} />
-        <LevelButton value={3} />
-      </View>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Game" component={GameScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.background,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-  },
-  mainTextContainer: {
-    flex: 2,
-    fontSize: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  mainText: {
-    fontSize: 20,
-    textAlign: 'center',
-    padding: 10,
-  },
-  buttons: {
-    flex: 2,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-  },
-  level: {
-    fontSize: 20,
-  },
-});
+export default App;
