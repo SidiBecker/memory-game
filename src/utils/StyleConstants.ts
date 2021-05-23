@@ -1,10 +1,12 @@
 export const COLORS = {
   text: 'black',
-  background: '#F6F6F6',
+  headerBackground: '#58B09C',
+  background: '#CAF7E2',
   primary: 'rebeccapurple',
 
   levelButton: {
-    background: '#7b107d',
+    backgroundFront: '#58B09C',
+    backgroundBack: '#386150',
     color: '#FFF'
   },
 };

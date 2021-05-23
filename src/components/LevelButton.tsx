@@ -1,8 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { COLORS } from '../utils/StyleConstants';
+import { Level } from '../utils/Contants';
 
-const LevelButton = ({ value, navigation }: number | any) => {
+const LevelButton = ({ level, navigation }: Level | any) => {
   function onClickButton(level: number) {
     navigation.navigate('Game', { level });
   }
@@ -10,9 +11,9 @@ const LevelButton = ({ value, navigation }: number | any) => {
   return (
     <TouchableOpacity
       style={styles.button}
-      onPress={() => onClickButton(value)}
+      onPress={() => onClickButton(level)}
     >
-      <Text style={styles.level}>{value}</Text>
+      <Text style={styles.level}>{level.level}</Text>
     </TouchableOpacity>
   );
 };
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 100,
     height: 100,
-    backgroundColor: COLORS.levelButton.background,
+    backgroundColor: COLORS.levelButton.backgroundFront,
     borderRadius: 50,
     margin: 10,
   },

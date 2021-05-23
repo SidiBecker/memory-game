@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import LevelButton from '../../src/components/LevelButton';
 import { COLORS } from '../../src/utils/StyleConstants';
+import { LEVELS } from '../utils/Contants';
 
 function HomeScreen({ navigation }: any) {
   return (
@@ -11,9 +12,9 @@ function HomeScreen({ navigation }: any) {
       </View>
 
       <View style={styles.buttons}>
-        <LevelButton value={1} navigation={navigation}/>
-        <LevelButton value={2} navigation={navigation}/>
-        <LevelButton value={3} navigation={navigation}/>
+        <LevelButton level={LEVELS.ONE} navigation={navigation}/>
+        <LevelButton level={LEVELS.TWO} navigation={navigation}/>
+        <LevelButton level={LEVELS.THREE} navigation={navigation}/>
       </View>
     </View>
   );
