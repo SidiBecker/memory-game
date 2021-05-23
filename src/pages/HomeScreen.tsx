@@ -4,17 +4,23 @@ import LevelButton from '../../src/components/LevelButton';
 import { COLORS } from '../../src/utils/StyleConstants';
 import { LEVELS } from '../utils/Contants';
 
-function HomeScreen({ navigation }: any) {
+function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.mainTextContainer}>
         <Text style={styles.mainText}>ESCOLHA O NÍVEL QUE DESEJA JOGAR</Text>
       </View>
 
-      <View style={styles.buttons}>
-        <LevelButton level={LEVELS.ONE} navigation={navigation}/>
-        <LevelButton level={LEVELS.TWO} navigation={navigation}/>
-        <LevelButton level={LEVELS.THREE} navigation={navigation}/>
+      <View style={styles.buttonsContainer}>
+        <View style={styles.buttons}>
+          <LevelButton level={LEVELS.ONE} />
+          <LevelButton level={LEVELS.TWO} />
+        </View>
+
+        <View style={styles.buttons}>
+          <LevelButton level={LEVELS.THREE} />
+          <LevelButton level={LEVELS.FOUR} />
+        </View>
       </View>
     </View>
   );
@@ -35,16 +41,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   mainText: {
-    fontSize: 20,
+    fontSize: 25,
     textAlign: 'center',
     padding: 10,
+    width: 240,
+    lineHeight: 50,
+  },
+  buttonsContainer: {
+    flex: 3,
+    width: '100%',
   },
   buttons: {
-    flex: 2,
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     flexWrap: 'wrap',
+    marginVertical: 20,
   },
   level: {
     fontSize: 20,

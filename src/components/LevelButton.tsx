@@ -2,8 +2,11 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { COLORS } from '../utils/StyleConstants';
 import { Level } from '../utils/Contants';
+import { useNavigation } from '@react-navigation/core';
 
-const LevelButton = ({ level, navigation }: Level | any) => {
+const LevelButton = ({ level }: Level | any) => {
+  const navigation = useNavigation();
+
   function onClickButton(level: number) {
     navigation.navigate('Game', { level });
   }
