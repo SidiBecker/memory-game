@@ -100,6 +100,7 @@ function GameScreen({ route }: any) {
             <View style={styles.cardRow} key={`cardrow_${index}`}>
               {cardListRow.map((card, index) => (
                 <TouchableWithoutFeedback
+                  style={{ height: 110, minHeight: 110}}
                   key={`card_${index}`}
                   onPress={() => onPressCard(card)}
                 >
